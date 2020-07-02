@@ -26,9 +26,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/data-tables" class="nav-link">
-                        <i class="fas fa-table nav-icon"></i>
-                        <p>Data Tables</p>
+                    <a href="/pertanyaan" class="nav-link">
+                        <i class="fas fa-question nav-icon"></i>
+                        <p>Pertanyaan</p>
                     </a>
                 </li>
             </ul>

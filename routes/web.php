@@ -14,5 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.content');
 });
+
+Route::get('/pertanyaan','QuestionController@index');
+
+Route::post('/pertanyaan','QuestionController@store');
+
+Route::get('/pertanyaan/create','QuestionController@create');
+
+Route::get('/jawaban/{pertanyaan_id}','AnswerController@index');
+
+Route::post('/jawaban/{pertanyaan_id}','AnswerController@store');
+
