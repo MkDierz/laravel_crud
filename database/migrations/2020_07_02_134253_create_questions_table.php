@@ -17,11 +17,11 @@ class CreateQuestionsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('content');
-            $table->date('date_edit');
-            $table->date('date_update');
-            $table->integer('like');
-            $table->integer('dislike');
-            $table->timestamps();
+            $table->integer('like')->nullable();
+            $table->integer('dislike')->nullable();
+            $table->date('date_edit')->nullable();
+            $table->date('date_create');
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 
