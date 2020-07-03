@@ -16,12 +16,11 @@ class CreateQuestionsTable extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('content');
-            $table->integer('like')->nullable();
-            $table->integer('dislike')->nullable();
-            $table->date('date_edit')->nullable();
-            $table->date('date_create');
-            $table->timestamp('created_at')->useCurrent();
+            $table->longText('content');
+            $table->integer('like')->default(0);
+            $table->integer('dislike')->default(0);
+            $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 

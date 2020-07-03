@@ -15,14 +15,13 @@ class CreateAnswersTable extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
-            $table->string('content');
-            $table->integer('like')->nullable();
-            $table->integer('dislike')->nullable();
             $table->integer('question_id')->nullable();
-            $table->boolean('best_answer')->nullable();
-            $table->date('date_edit')->nullable();
-            $table->date('date_create');
-            $table->timestamp('created_at')->useCurrent();
+            $table->longText('content');
+            $table->boolean('best_answer')->default(0);;
+            $table->integer('like')->default(0);;
+            $table->integer('dislike')->default(0);;
+            $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 
