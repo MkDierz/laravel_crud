@@ -11,8 +11,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item"><a href="/pertanyaan">Pertanyaan</a></li>
-                        {{--<li class="breadcrumb-item active">Blank Page</li>--}}
+                        <li class="breadcrumb-item active"><a>Pertanyaan</a></li>
                     </ol>
                 </div>
             </div>
@@ -24,43 +23,26 @@
 
         <!-- Default box -->
         <div class="card mx-5">
-{{--            <ul class="navbar-nav  m-1">--}}
-{{--                <li>--}}
-{{--                    <a href="">--}}
-{{--                        <button type="submit" class="btn btn-outline-success">--}}
-{{--                            <i class="fas fa-plus"></i>--}}
-{{--                            Tambah Pertanyaan--}}
-{{--                        </button>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--            </ul>--}}
             <div class="card-body">
-                <table id="tables" class="table table-borderless table-stripeda">
-                    <thead>
+                <table id="tables" class="table table-borderless table-hover  table-stripeda">
+                    <thead class="">
                     <tr>
-{{--                        <th scope="col" style="width:10px"></th>--}}
                         <th scope="col">Title</th>
                         <th scope="col">Question</th>
-                        <th scope="col" style="width:100px">Action</th>
+                        <th scope="col" style="width:10px"></th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($items as $key => $i)
                         <tr>
-{{--                            <th scope="row">{{ $key + 1 }}</th>--}}
-                            <td>{{ $i->title }}</td>
-                            <td>{{ $i->content }}</td>
                             <td>
-                                <a href="/jawaban/script?id={{ $i->id }}">
-                                    <button type="submit" class="btn btn-success">
-                                        <i class="fas fa-reply"></i>
-                                    </button>
-                                </a>
-                                <a href="">
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="fas fa-eye"></i>
-                                    </button>
-                                </a>
+                                <a href="/pertanyaan/{{$i->id}}" class="btn-block text-decoration-none text-dark">{{ $i->title }}</a>
+                            </td>
+                            <td>
+                                <a href="/pertanyaan/{{$i->id}}" class="btn-block text-decoration-none text-dark">{{ $i->content }}</a>
+                            </td>
+                            <td>
+                                <a href="/pertanyaan/{{$i->id}}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -82,7 +64,9 @@
     <script src="{{asset('/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
     <script>
         $(function () {
-            $("#tables").DataTable({});
+            $("#tables").DataTable({
+                "ordering": false
+            });
         });
     </script>
 

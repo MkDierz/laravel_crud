@@ -22,12 +22,12 @@
             <div class="row">
                 <div class="col">
                     <div class="card ">
-                        <form role="form" action="/jawaban/{{ $id = app('request')->input('id') }}" method="POST">
+                        <form role="form" action="/jawaban/{{ $id }}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="textarea">Answer</label>
-                                    <textarea id="textarea" class="form-control" placeholder="" name="content"></textarea>
+                                    <textarea id="textarea" class="form-control" placeholder="" name="content" autofocus></textarea>
                                 </div>
                             </div>
                             <!-- /.card-body -->
@@ -46,6 +46,3 @@
     </section>
 
 @endsection
-{{--@push('style')--}}
-{{--    {{ dd(app('request')->input('id')) }}--}}
-{{--@endpush--}}
