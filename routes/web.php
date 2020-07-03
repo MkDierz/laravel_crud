@@ -14,16 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin.content');
+    return view('home');
 });
 
 Route::get('/pertanyaan','QuestionController@index');
-
-Route::post('/pertanyaan','QuestionController@store');
-
+Route::post('/pertanyaan','QuestionController@insert');
 Route::get('/pertanyaan/create','QuestionController@create');
-
-Route::get('/jawaban/{pertanyaan_id}','AnswerController@index');
-
-Route::post('/jawaban/{pertanyaan_id}','AnswerController@store');
+Route::get('/pertanyaan/{id}','QuestionController@view');
+Route::get('/pertanyaan/edit/{id}','QuestionController@edit');
+Route::post('/pertanyaan/edit/{id}','QuestionController@update');
+Route::get('/pertanyaan/delete/{id}','QuestionController@delete');
+Route::get('/jawaban/{id}','AnswerController@index');
+Route::post('/jawaban/{id}','AnswerController@store');
 
