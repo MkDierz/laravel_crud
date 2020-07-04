@@ -1,5 +1,6 @@
 @extends('admin.master')
 @section('content')
+{{--    {{dd($data)}}--}}
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -22,12 +23,12 @@
             <div class="row">
                 <div class="col">
                     <div class="card ">
-                        <form role="form" action="/jawaban/{{ $id }}" method="POST">
+                        <form role="form" action="/jawaban/edit/{{ $data->id }}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="textarea">Answer</label>
-                                    <textarea id="textarea" class="form-control" placeholder="" name="content" autofocus></textarea>
+                                    <textarea id="textarea" class="form-control" placeholder="" name="content" autofocus>{{$data->content}}</textarea>
                                 </div>
                             </div>
                             <!-- /.card-body -->

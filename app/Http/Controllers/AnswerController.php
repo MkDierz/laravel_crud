@@ -24,4 +24,31 @@ class AnswerController extends Controller
             return redirect('/pertanyaan/'.$id);
         }
     }
+
+    public function edit($id)
+    {
+        $data = answer::get_id($id)[0];
+        return view('jawaban_edit',compact('data'));
+    }
+
+    public function update($id,Request $request)
+    {
+        unset($request["_token"]);
+        $request['id'] = $id;
+        answer::update_tbl($request->all());
+        $source = answer::get_id($id)[0]->question_id;
+        if ($request) {
+            return redirect('/pertanyaan/'.$source);
+        }
+
+    }
+
+    public function delete($id)
+    {
+        $source = answer::get_id($id)[0]->question_id;
+//        dd($source);
+        answer::delete_tbl($id);
+
+        return redirect('/pertanyaan/'.$source);
+    }
 }

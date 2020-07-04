@@ -49,10 +49,10 @@
                                         <div class="callout callout-info m-1">
                                             <p>
                                                 {{ $data->content}}
-                                                <a href="#" class="btn  btn-sm mr-2">
+                                                <a href="/jawaban/edit/{{$data->id}}" class="btn  btn-sm mr-2">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-outline-danger btn-sm float-right">
+                                                <a href="/jawaban/delete/{{$data->id}}" class="btn btn-outline-danger btn-sm float-right">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
                                             </p>

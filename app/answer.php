@@ -27,4 +27,14 @@ class answer extends Model
         return DB::table('answers')->insert($data);
     }
 
+    public static function update_tbl($data)
+    {
+        return DB::table('answers')->where('id',$data['id'])->update($data);
+    }
+
+    public static function delete_tbl($id)
+    {
+        return DB::table('answers')->delete($id);
+    }
+
 }
